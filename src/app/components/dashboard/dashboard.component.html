@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Dashboard</h2>
+  
+    <form (submit)="addTransaction()">
+      <select [(ngModel)]="transaction.type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <input type="number" [(ngModel)]="transaction.amount" placeholder="Amount" required>
+      <input type="text" [(ngModel)]="transaction.category" placeholder="Category" required>
+      <button type="submit">Add Transaction</button>
+    </form>
+  
+    <h3>Transaction List</h3>
+    <ul>
+      <li *ngFor="let txn of transactions">
+        {{ txn.type }} - {{ txn.category }} - ₹{{ txn.amount }}
+      </li>
+    </ul>
+  </div>
+  <a routerLink="/reports">
+    <button class="reports-btn">View Reports</button>
+  </a>
+  

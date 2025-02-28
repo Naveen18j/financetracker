@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+nav {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  nav a.active {
+    background-color: darkblue;
+  }
+  
+  nav a:hover {
+    background-color: lightblue;
+    color: black;
+  }
+  
