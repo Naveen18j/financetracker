@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // if using react-router
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -21,12 +21,12 @@ const Login = () => {
     }
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", formData);
-      // Save token to local storage or context
+      // Save token to localStorage (or your auth context)
       localStorage.setItem("token", res.data.token);
-      // Redirect to Dashboard
-      navigate("/");
+      // Redirect to Dashboard after successful login
+      navigate("/dashboard");
     } catch (err) {
-      setError(err.response.data.error || "Login failed");
+      setError(err.response?.data?.error || "Login failed");
     }
   };
 
