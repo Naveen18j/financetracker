@@ -1,30 +1,24 @@
-// client/src/components/TransactionList.jsx
-import React from 'react';
-import { deleteTransaction } from '../services/api';
+import React from "react";
+import { deleteTransaction } from "../services/api";
 
 const TransactionList = ({ transactions, setTransactions }) => {
   const handleDelete = async (id) => {
     try {
       await deleteTransaction(id);
-      setTransactions(transactions.filter(t => t._id !== id));
+      setTransactions(transactions.filter((t) => t._id !== id));
     } catch (error) {
-      console.error('Error deleting transaction:', error);
+      console.error("Error deleting transaction:", error);
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto">
-      {transactions.map(tx => (
-        <div key={tx._id} className="flex justify-between items-center border p-2 my-2 rounded">
+    <div>
+      {transactions.map((tx) => (
+        <div key={tx._id} style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem", borderBottom: "1px solid #ccc" }}>
           <div>
-            <h3 className="font-bold">{tx.description}</h3>
-            <p>
-              {tx.type === 'expense' ? '-' : '+'}${tx.amount}
-            </p>
+            <strong>{tx.description}</strong> ({tx.type}) - ${tx.amount}
           </div>
-          <button onClick={() => handleDelete(tx._id)} className="text-red-500">
-            Delete
-          </button>
+          <button onClick={() => handleDelete(tx._id)}>Delete</button>
         </div>
       ))}
     </div>

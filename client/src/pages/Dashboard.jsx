@@ -1,8 +1,7 @@
-// client/src/pages/Dashboard.jsx
-import React, { useEffect, useState } from 'react';
-import TransactionForm from '../components/TransactionForm';
-import TransactionList from '../components/TransactionList';
-import { getTransactions } from '../services/api';
+import React, { useEffect, useState } from "react";
+import TransactionForm from "../components/TransactionForm";
+import TransactionList from "../components/TransactionList";
+import { getTransactions } from "../services/api";
 
 const Dashboard = () => {
   const [transactions, setTransactions] = useState([]);
@@ -13,7 +12,7 @@ const Dashboard = () => {
         const { data } = await getTransactions();
         setTransactions(data);
       } catch (error) {
-        console.error('Error fetching transactions:', error);
+        console.error("Error fetching transactions:", error);
       }
     };
     fetchTransactions();
@@ -24,8 +23,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-center text-2xl font-bold mb-4">Finance Tracker</h1>
+    <div style={{ maxWidth: "600px", margin: "2rem auto", padding: "1rem" }}>
+      <h1>Finance Tracker</h1>
       <TransactionForm onTransactionAdded={addTransaction} />
       <TransactionList transactions={transactions} setTransactions={setTransactions} />
     </div>
