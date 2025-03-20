@@ -16,7 +16,7 @@ const TransactionList = ({ transactions, setTransactions }) => {
       {transactions.map((tx) => (
         <div key={tx._id} style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem", borderBottom: "1px solid #ccc" }}>
           <div>
-            <strong>{tx.description}</strong> ({tx.type}) - ${tx.amount}
+            <strong>{tx.description}</strong> ({tx.type}) - ₹{tx.amount}
           </div>
           <button onClick={() => handleDelete(tx._id)}>Delete</button>
         </div>
