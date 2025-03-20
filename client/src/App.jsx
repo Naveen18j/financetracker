@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Report from "./pages/Report";
+import React from 'react';
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
