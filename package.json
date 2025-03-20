@@ -2,5 +2,8 @@
 	"dependencies": {
 		"express-list-endpoints": "^7.1.1",
 		"pdfkit": "^0.16.0"
+	},
+	"devDependencies": {
+		"vite": "^6.2.2"
 	}
 }
